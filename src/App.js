@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Header } from "./common/header/Header";
+import "./App.css";
+import { Footer } from "./common/footer/Footer";
+import { BoxView } from "./pages/box-view/BoxView";
+import { useEffect, useState } from "react";
+import { getRequest } from "./services/HttpClient";
 
 function App() {
+  const [fruits, setFruits] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    getRequest("http://localhost:8080/fruits").then((response) => {
+
+      setFruits(response);
+      setLoading(false);
+    });
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <BoxView fruits={fruits} loading={loading} />
+      <Footer />
     </div>
   );
 }

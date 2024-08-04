@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 4rem;
+  .boxview-card {
+    background: #ffffff;
+    width: 260.64px;
+    height: 301.25px;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    &:hover {
+        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.3);
+        outline: none;
+    }
+
+    img {
+      width: 261px;
+      height: 179.51px;
+      border-radius: 10px 10px 0px 0px;
+      object-fit: contain;
+    }
+  }
+  .content{
+
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5rem 0;
+    gap: 0.25rem;
+    .title{
+        font-size: 24px;
+        font-weight: 700;
+        
+        
+    }
+  }
+}
